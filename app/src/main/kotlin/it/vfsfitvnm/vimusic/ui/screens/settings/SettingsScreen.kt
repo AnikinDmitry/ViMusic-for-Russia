@@ -53,12 +53,12 @@ fun SettingsScreen() {
                 tabIndex = tabIndex,
                 onTabChanged = onTabChanged,
                 tabColumnContent = { Item ->
-                    Item(0, "Appearance", R.drawable.color_palette)
-                    Item(1, "Player", R.drawable.play)
-                    Item(2, "Cache", R.drawable.server)
-                    Item(3, "Database", R.drawable.server)
-                    Item(4, "Other", R.drawable.shapes)
-                    Item(5, "About", R.drawable.information)
+                    Item(0, "Вид", R.drawable.color_palette)
+                    Item(1, "Плеер", R.drawable.play)
+                    Item(2, "Кеш", R.drawable.server)
+                    Item(3, "Хранилище", R.drawable.server)
+                    Item(4, "Другое", R.drawable.shapes)
+                    Item(5, "О нас", R.drawable.information)
                 }
             ) { currentTabIndex ->
                 saveableStateHolder.SaveableStateProvider(currentTabIndex) {
@@ -83,7 +83,7 @@ inline fun <reified T : Enum<T>> EnumValueSelectorSettingsEntry(
     crossinline onValueSelected: (T) -> Unit,
     modifier: Modifier = Modifier,
     isEnabled: Boolean = true,
-    crossinline valueText: (T) -> String = Enum<T>::name,
+    crossinline valueText: (T) -> String = Enum<T>::toString,
     noinline trailingContent: (@Composable () -> Unit)? = null
 ) {
     ValueSelectorSettingsEntry(

@@ -158,12 +158,12 @@ fun Thumbnail(
                 isDisplayed = error != null,
                 messageProvider = {
                     when (error?.cause?.cause) {
-                        is UnresolvedAddressException, is UnknownHostException -> "A network error has occurred"
-                        is PlayableFormatNotFoundException -> "Couldn't find a playable audio format"
-                        is UnplayableException -> "The original video source of this song has been deleted"
-                        is LoginRequiredException -> "This song cannot be played due to server restrictions"
-                        is VideoIdMismatchException -> "The returned video id doesn't match the requested one"
-                        else -> "An unknown playback error has occurred"
+                        is UnresolvedAddressException, is UnknownHostException -> "Произошла ошибка сети"
+                        is PlayableFormatNotFoundException -> "Не удалось найти воспроизводимый аудиоформат"
+                        is UnplayableException -> "Исходный видеоисточник этой песни удален."
+                        is LoginRequiredException -> "Эта песня не может быть воспроизведена из-за ограничений сервера"
+                        is VideoIdMismatchException -> "Возвращаемый идентификатор видео не соответствует запрошенному"
+                        else -> "Произошла неизвестная ошибка воспроизведения"
                     }
                 },
                 onDismiss = player::prepare

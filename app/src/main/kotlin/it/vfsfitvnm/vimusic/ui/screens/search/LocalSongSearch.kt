@@ -95,7 +95,7 @@ fun LocalSongSearch(
                     actionsContent = {
                         if (textFieldValue.text.isNotEmpty()) {
                             SecondaryTextButton(
-                                text = "Clear",
+                                text = "Очистить",
                                 onClick = { onTextFieldValueChanged(TextFieldValue()) }
                             )
                         }

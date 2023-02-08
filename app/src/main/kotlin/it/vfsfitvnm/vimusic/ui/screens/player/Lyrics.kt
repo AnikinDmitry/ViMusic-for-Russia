@@ -169,7 +169,7 @@ fun Lyrics(
 
         if (isEditing) {
             TextFieldDialog(
-                hintText = "Enter the lyrics",
+                hintText = "Введите текст",
                 initialTextInput = text ?: "",
                 singleLine = false,
                 maxLines = 10,
@@ -218,7 +218,7 @@ fun Lyrics(
                     .align(Alignment.TopCenter)
             ) {
                 BasicText(
-                    text = "An error has occurred while fetching the ${if (isShowingSynchronizedLyrics) "synchronized " else ""}lyrics",
+                    text = "Произошла ошибка при получении синхронизированного текста",
                     style = typography.xs.center.medium.color(PureBlackColorPalette.text),
                     modifier = Modifier
                         .background(Color.Black.copy(0.4f))
@@ -235,7 +235,7 @@ fun Lyrics(
                     .align(Alignment.TopCenter)
             ) {
                 BasicText(
-                    text = "${if (isShowingSynchronizedLyrics) "Synchronized l" else "L"}yrics are not available for this song",
+                    text = "Текст для этой песни недоступен",
                     style = typography.xs.center.medium.color(PureBlackColorPalette.text),
                     modifier = Modifier
                         .background(Color.Black.copy(0.4f))
@@ -345,7 +345,7 @@ fun Lyrics(
 
                                     MenuEntry(
                                         icon = R.drawable.pencil,
-                                        text = "Edit lyrics",
+                                        text = "Изменить текст",
                                         onClick = {
                                             menuState.hide()
                                             isEditing = true
@@ -354,7 +354,7 @@ fun Lyrics(
 
                                     MenuEntry(
                                         icon = R.drawable.search,
-                                        text = "Search lyrics online",
+                                        text = "Искать тексты онлайн",
                                         onClick = {
                                             menuState.hide()
                                             val mediaMetadata = mediaMetadataProvider()
@@ -364,19 +364,19 @@ fun Lyrics(
                                                     Intent(Intent.ACTION_WEB_SEARCH).apply {
                                                         putExtra(
                                                             SearchManager.QUERY,
-                                                            "${mediaMetadata.title} ${mediaMetadata.artist} lyrics"
+                                                            "Текст ${mediaMetadata.title} ${mediaMetadata.artist}"
                                                         )
                                                     }
                                                 )
                                             } catch (e: ActivityNotFoundException) {
-                                                context.toast("Couldn't find an application to browse the Internet")
+                                                context.toast("Не удалось найти приложение для работы в Интернете")
                                             }
                                         }
                                     )
 
                                     MenuEntry(
                                         icon = R.drawable.download,
-                                        text = "Fetch lyrics again",
+                                        text = "Получить текст снова",
                                         enabled = lyrics != null,
                                         onClick = {
                                             menuState.hide()

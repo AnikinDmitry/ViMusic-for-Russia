@@ -62,18 +62,18 @@ fun AppearanceSettings() {
                     .asPaddingValues()
             )
     ) {
-        Header(title = "Appearance")
+        Header(title = "Вид")
 
-        SettingsEntryGroupText(title = "COLORS")
+        SettingsEntryGroupText(title = "Цвета")
 
         EnumValueSelectorSettingsEntry(
-            title = "Theme",
+            title = "Палитра",
             selectedValue = colorPaletteName,
             onValueSelected = { colorPaletteName = it }
         )
 
         EnumValueSelectorSettingsEntry(
-            title = "Theme mode",
+            title = "Цвет",
             selectedValue = colorPaletteMode,
             isEnabled = colorPaletteName != ColorPaletteName.PureBlack,
             onValueSelected = { colorPaletteMode = it }
@@ -81,10 +81,10 @@ fun AppearanceSettings() {
 
         SettingsGroupSpacer()
 
-        SettingsEntryGroupText(title = "SHAPES")
+        SettingsEntryGroupText(title = "Формы")
 
         EnumValueSelectorSettingsEntry(
-            title = "Thumbnail roundness",
+            title = "Округлость миниатюры",
             selectedValue = thumbnailRoundness,
             onValueSelected = { thumbnailRoundness = it },
             trailingContent = {
@@ -99,18 +99,18 @@ fun AppearanceSettings() {
 
         SettingsGroupSpacer()
 
-        SettingsEntryGroupText(title = "TEXT")
+        SettingsEntryGroupText(title = "Текст")
 
         SwitchSettingEntry(
-            title = "Use system font",
-            text = "Use the font applied by the system",
+            title = "Использовать системный шрифт",
+            text = "Используйте шрифт, примененный системой",
             isChecked = useSystemFont,
             onCheckedChange = { useSystemFont = it }
         )
 
         SwitchSettingEntry(
-            title = "Apply font padding",
-            text = "Add spacing around texts",
+            title = "Применить отступ шрифта",
+            text = "Добавляйте интервалы вокруг текста",
             isChecked = applyFontPadding,
             onCheckedChange = { applyFontPadding = it }
         )
@@ -118,11 +118,11 @@ fun AppearanceSettings() {
         if (!isAtLeastAndroid13) {
             SettingsGroupSpacer()
 
-            SettingsEntryGroupText(title = "LOCKSCREEN")
+            SettingsEntryGroupText(title = "Экран блокировки")
 
             SwitchSettingEntry(
-                title = "Show song cover",
-                text = "Use the playing song cover as the lockscreen wallpaper",
+                title = "Показать обложку песни",
+                text = "Используйте обложку воспроизводимой песни в качестве обоев экрана блокировки",
                 isChecked = isShowingThumbnailInLockscreen,
                 onCheckedChange = { isShowingThumbnailInLockscreen = it }
             )

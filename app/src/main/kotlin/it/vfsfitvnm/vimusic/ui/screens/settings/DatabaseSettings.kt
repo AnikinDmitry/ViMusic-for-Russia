@@ -94,16 +94,16 @@ fun DatabaseSettings() {
                     .asPaddingValues()
             )
     ) {
-        Header(title = "Database")
+        Header(title = "Хранилище")
 
-        SettingsEntryGroupText(title = "CLEANUP")
+        SettingsEntryGroupText(title = "Отчистка")
 
         SettingsEntry(
-            title = "Reset quick picks",
+            title = "Сбросить главный экран",
             text = if (eventsCount > 0) {
-                "Delete $eventsCount playback events"
+                "Удалено воспроизведений: $eventsCount"
             } else {
-                "Quick picks are cleared"
+                "Главный экран очищен"
             },
             isEnabled = eventsCount > 0,
             onClick = { query(Database::clearEvents) }
@@ -111,13 +111,13 @@ fun DatabaseSettings() {
 
         SettingsGroupSpacer()
 
-        SettingsEntryGroupText(title = "BACKUP")
+        SettingsEntryGroupText(title = "Резервное копирование")
 
-        SettingsDescription(text = "Personal preferences (i.e. the theme mode) and the cache are excluded.")
+        SettingsDescription(text = "Личные настройки (например, тематический режим) и кэш исключаются.")
 
         SettingsEntry(
-            title = "Backup",
-            text = "Export the database to the external storage",
+            title = "Резервное копирование",
+            text = "Экспорт базы данных во внешнее хранилище",
             onClick = {
                 @SuppressLint("SimpleDateFormat")
                 val dateFormat = SimpleDateFormat("yyyyMMddHHmmss")
@@ -125,20 +125,20 @@ fun DatabaseSettings() {
                 try {
                     backupLauncher.launch("vimusic_${dateFormat.format(Date())}.db")
                 } catch (e: ActivityNotFoundException) {
-                    context.toast("Couldn't find an application to create documents")
+                    context.toast("Не удалось найти приложение для создания документов")
                 }
             }
         )
 
         SettingsGroupSpacer()
 
-        SettingsEntryGroupText(title = "RESTORE")
+        SettingsEntryGroupText(title = "Востановление")
 
-        ImportantSettingsDescription(text = "Existing data will be overwritten.\n${context.applicationInfo.nonLocalizedLabel} will automatically close itself after restoring the database.")
+        ImportantSettingsDescription(text = "Существующие данные будут перезаписаны.\n${context.applicationInfo.nonLocalizedLabel} автоматически закроется после восстановления базы данных.")
 
         SettingsEntry(
-            title = "Restore",
-            text = "Import the database from the external storage",
+            title = "Востановление",
+            text = "Импорт базы данных из внешнего хранилища",
             onClick = {
                 try {
                     restoreLauncher.launch(
@@ -149,7 +149,7 @@ fun DatabaseSettings() {
                         )
                     )
                 } catch (e: ActivityNotFoundException) {
-                    context.toast("Couldn't find an application to open documents")
+                    context.toast("Не удалось найти приложение для открытия документов")
                 }
             }
         )

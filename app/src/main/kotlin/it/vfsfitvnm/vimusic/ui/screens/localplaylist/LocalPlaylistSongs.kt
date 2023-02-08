@@ -102,7 +102,7 @@ fun LocalPlaylistSongs(
 
     if (isRenaming) {
         TextFieldDialog(
-            hintText = "Enter the playlist name",
+            hintText = "Введите название плейлиста",
             initialTextInput = playlistWithSongs?.playlist?.name ?: "",
             onDismiss = { isRenaming = false },
             onDone = { text ->
@@ -119,7 +119,7 @@ fun LocalPlaylistSongs(
 
     if (isDeleting) {
         ConfirmationDialog(
-            text = "Do you really want to delete this playlist?",
+            text = "Вы действительно хотите удалить этот плейлист?",
             onDismiss = { isDeleting = false },
             onConfirm = {
                 query {
@@ -149,12 +149,12 @@ fun LocalPlaylistSongs(
                 contentType = 0
             ) {
                 Header(
-                    title = playlistWithSongs?.playlist?.name ?: "Unknown",
+                    title = playlistWithSongs?.playlist?.name ?: "Неизвестно",
                     modifier = Modifier
                         .padding(bottom = 8.dp)
                 ) {
                     SecondaryTextButton(
-                        text = "Enqueue",
+                        text = "Перемешать",
                         enabled = playlistWithSongs?.songs?.isNotEmpty() == true,
                         onClick = {
                             playlistWithSongs?.songs
@@ -179,7 +179,7 @@ fun LocalPlaylistSongs(
                                     playlistWithSongs?.playlist?.browseId?.let { browseId ->
                                         MenuEntry(
                                             icon = R.drawable.sync,
-                                            text = "Sync",
+                                            text = "Синхронизировать",
                                             onClick = {
                                                 menuState.hide()
                                                 transaction {
@@ -210,7 +210,7 @@ fun LocalPlaylistSongs(
 
                                     MenuEntry(
                                         icon = R.drawable.pencil,
-                                        text = "Rename",
+                                        text = "Переименовать",
                                         onClick = {
                                             menuState.hide()
                                             isRenaming = true
@@ -219,7 +219,7 @@ fun LocalPlaylistSongs(
 
                                     MenuEntry(
                                         icon = R.drawable.trash,
-                                        text = "Delete",
+                                        text = "Удалить",
                                         onClick = {
                                             menuState.hide()
                                             isDeleting = true

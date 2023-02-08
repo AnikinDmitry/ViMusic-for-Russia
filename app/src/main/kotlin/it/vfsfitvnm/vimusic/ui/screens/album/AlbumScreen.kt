@@ -122,7 +122,7 @@ fun AlbumScreen(browseId: String) {
                         val (colorPalette) = LocalAppearance.current
                         val context = LocalContext.current
 
-                        Header(title = album?.title ?: "Unknown") {
+                        Header(title = album?.title ?: "Неизвестно") {
                             textButton?.invoke()
 
                             Spacer(
@@ -182,8 +182,8 @@ fun AlbumScreen(browseId: String) {
                 tabIndex = tabIndex,
                 onTabChanged = { tabIndex = it },
                 tabColumnContent = { Item ->
-                    Item(0, "Songs", R.drawable.musical_notes)
-                    Item(1, "Other versions", R.drawable.disc)
+                    Item(0, "Песни", R.drawable.musical_notes)
+                    Item(1, "Другие версии", R.drawable.disc)
                 }
             ) { currentTabIndex ->
                 saveableStateHolder.SaveableStateProvider(key = currentTabIndex) {
@@ -203,7 +203,7 @@ fun AlbumScreen(browseId: String) {
                                 headerContent = headerContent,
                                 initialPlaceholderCount = 1,
                                 continuationPlaceholderCount = 1,
-                                emptyItemsText = "This album doesn't have any alternative version",
+                                emptyItemsText = "У этого альбома нет альтернативной версии",
                                 itemsPageProvider = albumPage?.let {
                                     ({
                                         Result.success(

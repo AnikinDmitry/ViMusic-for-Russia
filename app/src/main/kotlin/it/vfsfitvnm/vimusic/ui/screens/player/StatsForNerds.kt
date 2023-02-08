@@ -140,7 +140,7 @@ fun StatsForNerds(
             ) {
                 Column(horizontalAlignment = Alignment.End) {
                     BasicText(
-                        text = "Id",
+                        text = "ID",
                         style = typography.xs.medium.color(colorPalette.onOverlay)
                     )
                     BasicText(
@@ -148,19 +148,19 @@ fun StatsForNerds(
                         style = typography.xs.medium.color(colorPalette.onOverlay)
                     )
                     BasicText(
-                        text = "Bitrate",
+                        text = "Битрейт",
                         style = typography.xs.medium.color(colorPalette.onOverlay)
                     )
                     BasicText(
-                        text = "Size",
+                        text = "Размер",
                         style = typography.xs.medium.color(colorPalette.onOverlay)
                     )
                     BasicText(
-                        text = "Cached",
+                        text = "Кэшировано",
                         style = typography.xs.medium.color(colorPalette.onOverlay)
                     )
                     BasicText(
-                        text = "Loudness",
+                        text = "Громкость",
                         style = typography.xs.medium.color(colorPalette.onOverlay)
                     )
                 }
@@ -172,18 +172,18 @@ fun StatsForNerds(
                         style = typography.xs.medium.color(colorPalette.onOverlay)
                     )
                     BasicText(
-                        text = format?.itag?.toString() ?: "Unknown",
+                        text = format?.itag?.toString() ?: "Неизвестно",
                         maxLines = 1,
                         style = typography.xs.medium.color(colorPalette.onOverlay)
                     )
                     BasicText(
-                        text = format?.bitrate?.let { "${it / 1000} kbps" } ?: "Unknown",
+                        text = format?.bitrate?.let { "${it / 1000} kbps" } ?: "Неизвестно",
                         maxLines = 1,
                         style = typography.xs.medium.color(colorPalette.onOverlay)
                     )
                     BasicText(
                         text = format?.contentLength
-                            ?.let { Formatter.formatShortFileSize(context, it) } ?: "Unknown",
+                            ?.let { Formatter.formatShortFileSize(context, it) } ?: "Неизвестно",
                         maxLines = 1,
                         style = typography.xs.medium.color(colorPalette.onOverlay)
                     )
@@ -199,7 +199,7 @@ fun StatsForNerds(
                         style = typography.xs.medium.color(colorPalette.onOverlay)
                     )
                     BasicText(
-                        text = format?.loudnessDb?.let { "%.2f dB".format(it) } ?: "Unknown",
+                        text = format?.loudnessDb?.let { "%.2f dB".format(it) } ?: "Неизвестно",
                         maxLines = 1,
                         style = typography.xs.medium.color(colorPalette.onOverlay)
                     )

@@ -58,9 +58,9 @@ fun CacheSettings() {
                     .asPaddingValues()
             )
     ) {
-        Header(title = "Cache")
+        Header(title = "Кеш")
 
-        SettingsDescription(text = "When the cache runs out of space, the resources that haven't been accessed for the longest time are cleared")
+        SettingsDescription(text = "Когда в кеше заканчивается место, ресурсы, к которым не было доступа в течение длительного времени, очищаются.")
 
         Coil.imageLoader(context).diskCache?.let { diskCache ->
             val diskCacheSize = remember(diskCache) {
@@ -69,7 +69,7 @@ fun CacheSettings() {
 
             SettingsGroupSpacer()
 
-            SettingsEntryGroupText(title = "IMAGE CACHE")
+            SettingsEntryGroupText(title = "Кеш изображений")
 
             SettingsDescription(
                 text = "${
@@ -77,11 +77,11 @@ fun CacheSettings() {
                         context,
                         diskCacheSize
                     )
-                } used (${diskCacheSize * 100 / coilDiskCacheMaxSize.bytes.coerceAtLeast(1)}%)"
+                } используется (${diskCacheSize * 100 / coilDiskCacheMaxSize.bytes.coerceAtLeast(1)}%)"
             )
 
             EnumValueSelectorSettingsEntry(
-                title = "Max size",
+                title = "Максимальный размер",
                 selectedValue = coilDiskCacheMaxSize,
                 onValueSelected = { coilDiskCacheMaxSize = it }
             )
@@ -96,12 +96,12 @@ fun CacheSettings() {
 
             SettingsGroupSpacer()
 
-            SettingsEntryGroupText(title = "SONG CACHE")
+            SettingsEntryGroupText(title = "Кеш песен")
 
             SettingsDescription(
                 text = buildString {
                     append(Formatter.formatShortFileSize(context, diskCacheSize))
-                    append(" used")
+                    append(" используется")
                     when (val size = exoPlayerDiskCacheMaxSize) {
                         ExoPlayerDiskCacheMaxSize.Unlimited -> {}
                         else -> append(" (${diskCacheSize * 100 / size.bytes}%)")
@@ -110,7 +110,7 @@ fun CacheSettings() {
             )
 
             EnumValueSelectorSettingsEntry(
-                title = "Max size",
+                title = "Максимальный размер",
                 selectedValue = exoPlayerDiskCacheMaxSize,
                 onValueSelected = { exoPlayerDiskCacheMaxSize = it }
             )

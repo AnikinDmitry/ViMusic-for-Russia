@@ -103,7 +103,7 @@ fun ArtistOverview(
                     headerContent {
                         youtubeArtistPage?.shuffleEndpoint?.let { endpoint ->
                             SecondaryTextButton(
-                                text = "Shuffle",
+                                text = "Перемешать",
                                 onClick = {
                                     binder?.stopRadio()
                                     binder?.playRadio(endpoint)
@@ -125,14 +125,14 @@ fun ArtistOverview(
                                 .padding(endPaddingValues)
                         ) {
                             BasicText(
-                                text = "Songs",
+                                text = "Песни",
                                 style = typography.m.semiBold,
                                 modifier = sectionTextModifier
                             )
 
                             youtubeArtistPage.songsEndpoint?.let {
                                 BasicText(
-                                    text = "View all",
+                                    text = "Посмотреть все",
                                     style = typography.xs.secondary,
                                     modifier = sectionTextModifier
                                         .clickable(onClick = onViewAllSongsClick),
@@ -178,14 +178,14 @@ fun ArtistOverview(
                                 .padding(endPaddingValues)
                         ) {
                             BasicText(
-                                text = "Albums",
+                                text = "Альбомы",
                                 style = typography.m.semiBold,
                                 modifier = sectionTextModifier
                             )
 
                             youtubeArtistPage.albumsEndpoint?.let {
                                 BasicText(
-                                    text = "View all",
+                                    text = "Посмотреть все",
                                     style = typography.xs.secondary,
                                     modifier = sectionTextModifier
                                         .clickable(onClick = onViewAllAlbumsClick),
@@ -223,14 +223,14 @@ fun ArtistOverview(
                                 .padding(endPaddingValues)
                         ) {
                             BasicText(
-                                text = "Singles",
+                                text = "Синглы",
                                 style = typography.m.semiBold,
                                 modifier = sectionTextModifier
                             )
 
                             youtubeArtistPage.singlesEndpoint?.let {
                                 BasicText(
-                                    text = "View all",
+                                    text = "Посмотреть все",
                                     style = typography.xs.secondary,
                                     modifier = sectionTextModifier
                                         .clickable(onClick = onViewAllSinglesClick),

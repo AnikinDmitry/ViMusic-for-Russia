@@ -102,7 +102,7 @@ fun HomeSongs(
                 key = "header",
                 contentType = 0
             ) {
-                Header(title = "Songs") {
+                Header(title = "Песни") {
                     HeaderIconButton(
                         icon = R.drawable.trending,
                         color = if (sortBy == SongSortBy.PlayTime) colorPalette.text else colorPalette.textDisabled,

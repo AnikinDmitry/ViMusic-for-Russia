@@ -43,7 +43,7 @@ inline fun <T : Innertube.Item> ItemsPage(
     modifier: Modifier = Modifier,
     initialPlaceholderCount: Int = 8,
     continuationPlaceholderCount: Int = 3,
-    emptyItemsText: String = "No items found",
+    emptyItemsText: String = "Ничего не найдено",
     noinline itemsPageProvider: (suspend (String?) -> Result<Innertube.ItemsPage<T>?>?)? = null,
 ) {
     val (_, typography) = LocalAppearance.current

@@ -27,7 +27,7 @@ fun PlaylistScreen(browseId: String) {
                 tabIndex = 0,
                 onTabChanged = { },
                 tabColumnContent = { Item ->
-                    Item(0, "Songs", R.drawable.musical_notes)
+                    Item(0, "Песни", R.drawable.musical_notes)
                 }
             ) { currentTabIndex ->
                 saveableStateHolder.SaveableStateProvider(key = currentTabIndex) {

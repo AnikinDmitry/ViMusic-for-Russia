@@ -92,7 +92,7 @@ fun PlaylistSongList(
 
     if (isImportingPlaylist) {
         TextFieldDialog(
-            hintText = "Enter the playlist name",
+            hintText = "Введите название плейлиста",
             initialTextInput = playlistPage?.title ?: "",
             onDismiss = { isImportingPlaylist = false },
             onDone = { text ->
@@ -123,9 +123,9 @@ fun PlaylistSongList(
                     .shimmer()
             )
         } else {
-            Header(title = playlistPage?.title ?: "Unknown") {
+            Header(title = playlistPage?.title ?: "Неизвестно") {
                 SecondaryTextButton(
-                    text = "Enqueue",
+                    text = "Перемешать",
                     enabled = playlistPage?.songsPage?.items?.isNotEmpty() == true,
                     onClick = {
                         playlistPage?.songsPage?.items?.map(Innertube.SongItem::asMediaItem)?.let { mediaItems ->
