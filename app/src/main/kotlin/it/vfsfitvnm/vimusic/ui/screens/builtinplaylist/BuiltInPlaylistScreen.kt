@@ -38,8 +38,8 @@ fun BuiltInPlaylistScreen(builtInPlaylist: BuiltInPlaylist) {
                 tabIndex = tabIndex,
                 onTabChanged = onTabIndexChanged,
                 tabColumnContent = { Item ->
-                    Item(0, "Favorites", R.drawable.heart)
-                    Item(1, "Offline", R.drawable.airplane)
+                    Item(0, "Любимое", R.drawable.heart)
+                    Item(1, "Оффлайн", R.drawable.airplane)
                 }
             ) { currentTabIndex ->
                 saveableStateHolder.SaveableStateProvider(key = currentTabIndex) {

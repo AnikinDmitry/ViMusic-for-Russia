@@ -61,13 +61,13 @@ fun PlayerSettings() {
                     .asPaddingValues()
             )
     ) {
-        Header(title = "Player & Audio")
+        Header(title = "Плеер и Аудио")
 
-        SettingsEntryGroupText(title = "PLAYER")
+        SettingsEntryGroupText(title = "Плеер")
 
         SwitchSettingEntry(
-            title = "Persistent queue",
-            text = "Save and restore playing songs",
+            title = "Постоянная очередь",
+            text = "Сохраняйте и восстанавливайте воспроизводимые песни",
             isChecked = persistentQueue,
             onCheckedChange = {
                 persistentQueue = it
@@ -76,8 +76,8 @@ fun PlayerSettings() {
 
         if (isAtLeastAndroid6) {
             SwitchSettingEntry(
-                title = "Resume playback",
-                text = "When a wired or bluetooth device is connected",
+                title = "Возобновить воспроизведение",
+                text = "При подключении проводного или Bluetooth-устройства",
                 isChecked = resumePlaybackWhenDeviceConnected,
                 onCheckedChange = {
                     resumePlaybackWhenDeviceConnected = it
@@ -87,11 +87,11 @@ fun PlayerSettings() {
 
         SettingsGroupSpacer()
 
-        SettingsEntryGroupText(title = "AUDIO")
+        SettingsEntryGroupText(title = "Аудио")
 
         SwitchSettingEntry(
-            title = "Skip silence",
-            text = "Skip silent parts during playback",
+            title = "Пропустить тишину",
+            text = "Пропускать тихие части во время воспроизведения",
             isChecked = skipSilence,
             onCheckedChange = {
                 skipSilence = it
@@ -99,8 +99,8 @@ fun PlayerSettings() {
         )
 
         SwitchSettingEntry(
-            title = "Loudness normalization",
-            text = "Adjust the volume to a fixed level",
+            title = "Нормализация громкости",
+            text = "Отрегулируйте громкость до фиксированного уровня",
             isChecked = volumeNormalization,
             onCheckedChange = {
                 volumeNormalization = it
@@ -108,8 +108,8 @@ fun PlayerSettings() {
         )
 
         SettingsEntry(
-            title = "Equalizer",
-            text = "Interact with the system equalizer",
+            title = "Эквалайзер",
+            text = "Взаимодействовать с системным эквалайзером",
             onClick = {
                 val intent = Intent(AudioEffect.ACTION_DISPLAY_AUDIO_EFFECT_CONTROL_PANEL).apply {
                     putExtra(AudioEffect.EXTRA_AUDIO_SESSION, binder?.player?.audioSessionId)
@@ -120,7 +120,7 @@ fun PlayerSettings() {
                 try {
                     activityResultLauncher.launch(intent)
                 } catch (e: ActivityNotFoundException) {
-                    context.toast("Couldn't find an application to equalize audio")
+                    context.toast("Не удалось найти приложение для выравнивания звука")
                 }
             }
         )

@@ -66,7 +66,7 @@ fun SearchScreen(
                             .align(Alignment.CenterEnd)
                     ) {
                         BasicText(
-                            text = "Enter a name",
+                            text = "Введите название",
                             maxLines = 1,
                             style = LocalAppearance.current.typography.xxl.secondary
                         )
@@ -82,8 +82,8 @@ fun SearchScreen(
                 tabIndex = tabIndex,
                 onTabChanged = onTabChanged,
                 tabColumnContent = { Item ->
-                    Item(0, "Online", R.drawable.globe)
-                    Item(1, "Library", R.drawable.library)
+                    Item(0, "Oнлайн", R.drawable.globe)
+                    Item(1, "Библиотека", R.drawable.library)
                 }
             ) { currentTabIndex ->
                 saveableStateHolder.SaveableStateProvider(currentTabIndex) {

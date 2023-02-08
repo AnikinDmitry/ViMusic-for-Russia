@@ -75,7 +75,7 @@ fun SearchResultScreen(query: String, onSearchAgain: () -> Unit) {
                 )
             }
 
-            val emptyItemsText = "No results found. Please try a different query or category"
+            val emptyItemsText = "Результатов не найдено. Пожалуйста, попробуйте другой запрос или категорию"
 
             Scaffold(
                 topIconButtonId = R.drawable.chevron_back,
@@ -83,12 +83,12 @@ fun SearchResultScreen(query: String, onSearchAgain: () -> Unit) {
                 tabIndex = tabIndex,
                 onTabChanged = onTabIndexChanges,
                 tabColumnContent = { Item ->
-                    Item(0, "Songs", R.drawable.musical_notes)
-                    Item(1, "Albums", R.drawable.disc)
-                    Item(2, "Artists", R.drawable.person)
-                    Item(3, "Videos", R.drawable.film)
-                    Item(4, "Playlists", R.drawable.playlist)
-                    Item(5, "Featured", R.drawable.playlist)
+                    Item(0, "Песни", R.drawable.musical_notes)
+                    Item(1, "Альбомы", R.drawable.disc)
+                    Item(2, "Артисты", R.drawable.person)
+                    Item(3, "Видео", R.drawable.film)
+                    Item(4, "Плейлисты", R.drawable.playlist)
+                    Item(5, "Избранное", R.drawable.playlist)
                 }
             ) { tabIndex ->
                 saveableStateHolder.SaveableStateProvider(tabIndex) {

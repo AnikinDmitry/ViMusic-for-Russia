@@ -69,7 +69,7 @@ fun HomePlaylists(
 
     if (isCreatingANewPlaylist) {
         TextFieldDialog(
-            hintText = "Enter the playlist name",
+            hintText = "Введите название плейлиста",
             onDismiss = {
                 isCreatingANewPlaylist = false
             },
@@ -116,9 +116,9 @@ fun HomePlaylists(
                 .background(colorPalette.background0)
         ) {
             item(key = "header", contentType = 0, span = { GridItemSpan(maxLineSpan) }) {
-                Header(title = "Playlists") {
+                Header(title = "Плейлисты") {
                     SecondaryTextButton(
-                        text = "New playlist",
+                        text = "Новый плейлист",
                         onClick = { isCreatingANewPlaylist = true }
                     )
 
@@ -164,7 +164,7 @@ fun HomePlaylists(
                 PlaylistItem(
                     icon = R.drawable.heart,
                     colorTint = colorPalette.red,
-                    name = "Favorites",
+                    name = "Любимое",
                     songCount = null,
                     thumbnailSizeDp = thumbnailSizeDp,
                     alternative = true,
@@ -178,7 +178,7 @@ fun HomePlaylists(
                 PlaylistItem(
                     icon = R.drawable.airplane,
                     colorTint = colorPalette.blue,
-                    name = "Offline",
+                    name = "Оффлайн",
                     songCount = null,
                     thumbnailSizeDp = thumbnailSizeDp,
                     alternative = true,

@@ -152,7 +152,7 @@ fun QuickPicks(
                 )
         ) {
             Header(
-                title = "Quick picks",
+                title = "Главная",
                 modifier = Modifier
                     .padding(endPaddingValues)
             )
@@ -248,7 +248,7 @@ fun QuickPicks(
 
                 related.albums?.let { albums ->
                     BasicText(
-                        text = "Related albums",
+                        text = "Похожие альбомы",
                         style = typography.m.semiBold,
                         modifier = sectionTextModifier
                     )
@@ -272,7 +272,7 @@ fun QuickPicks(
 
                 related.artists?.let { artists ->
                     BasicText(
-                        text = "Similar artists",
+                        text = "Похожие исполнители",
                         style = typography.m.semiBold,
                         modifier = sectionTextModifier
                     )
@@ -296,7 +296,7 @@ fun QuickPicks(
 
                 related.playlists?.let { playlists ->
                     BasicText(
-                        text = "Playlists you might like",
+                        text = "Плейлисты, которые могут вам понравиться",
                         style = typography.m.semiBold,
                         modifier = Modifier
                             .padding(horizontal = 16.dp)
@@ -323,7 +323,7 @@ fun QuickPicks(
                 Unit
             } ?: relatedPageResult?.exceptionOrNull()?.let {
                 BasicText(
-                    text = "An error has occurred",
+                    text = "Произошла ошибка",
                     style = typography.s.secondary.center,
                     modifier = Modifier
                         .align(Alignment.CenterHorizontally)

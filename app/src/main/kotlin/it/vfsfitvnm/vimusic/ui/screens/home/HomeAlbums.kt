@@ -85,7 +85,7 @@ fun HomeAlbums(
                 key = "header",
                 contentType = 0
             ) {
-                Header(title = "Albums") {
+                Header(title = "Альбомы") {
                     HeaderIconButton(
                         icon = R.drawable.calendar,
                         color = if (sortBy == AlbumSortBy.Year) colorPalette.text else colorPalette.textDisabled,

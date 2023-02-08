@@ -62,8 +62,8 @@ fun TextFieldDialog(
     onDismiss: () -> Unit,
     onDone: (String) -> Unit,
     modifier: Modifier = Modifier,
-    cancelText: String = "Cancel",
-    doneText: String = "Done",
+    cancelText: String = "Отмена",
+    doneText: String = "Ок",
     initialTextInput: String = "",
     singleLine: Boolean = true,
     maxLines: Int = 1,
@@ -324,7 +324,7 @@ inline fun <T> ValueSelectorDialog(
                     .padding(end = 24.dp)
             ) {
                 DialogTextButton(
-                    text = "Cancel",
+                    text = "Отмена",
                     onClick = onDismiss,
                     modifier = Modifier
                 )

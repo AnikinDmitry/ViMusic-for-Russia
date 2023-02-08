@@ -330,8 +330,19 @@ fun Queue(
                     .padding(horizontalBottomPaddingValues)
                     .height(64.dp)
             ) {
+                fun Int.getSongsText() =
+                    if (this in 11..19) {
+                        "$this песен"
+                    } else {
+                        when (this % 10) {
+                            1 -> "$this песня"
+                            2, 3, 4 -> "$this песни"
+                            else -> "$this песен"
+                        }
+                    }
+
                 BasicText(
-                    text = "${windows.size} songs",
+                    text = windows.size.getSongsText(),
                     style = typography.xxs.medium,
                     modifier = Modifier
                         .background(
@@ -361,7 +372,7 @@ fun Queue(
                         .animateContentSize()
                 ) {
                     BasicText(
-                        text = "Queue loop ",
+                        text = "Цикл очереди ",
                         style = typography.xxs.medium,
                     )
 
@@ -377,7 +388,7 @@ fun Queue(
                         }
                     ) {
                         BasicText(
-                            text = if (it) "on" else "off",
+                            text = if (it) "вкл." else "выкл.",
                             style = typography.xxs.medium,
                         )
                     }

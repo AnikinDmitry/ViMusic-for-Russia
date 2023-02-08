@@ -94,14 +94,14 @@ fun BuiltInPlaylistSongs(builtInPlaylist: BuiltInPlaylist) {
             ) {
                 Header(
                     title = when (builtInPlaylist) {
-                        BuiltInPlaylist.Favorites -> "Favorites"
-                        BuiltInPlaylist.Offline -> "Offline"
+                        BuiltInPlaylist.Favorites -> "Любимое"
+                        BuiltInPlaylist.Offline -> "Оффлайн"
                     },
                     modifier = Modifier
                         .padding(bottom = 8.dp)
                 ) {
                     SecondaryTextButton(
-                        text = "Enqueue",
+                        text = "Перемешать",
                         enabled = songs.isNotEmpty(),
                         onClick = {
                             binder?.player?.enqueue(songs.map(Song::asMediaItem))

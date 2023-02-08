@@ -98,36 +98,36 @@ fun OtherSettings() {
                     .asPaddingValues()
             )
     ) {
-        Header(title = "Other")
+        Header(title = "Другое")
 
-        SettingsEntryGroupText(title = "ANDROID AUTO")
+        SettingsEntryGroupText(title = "Android Auto")
 
-        SettingsDescription(text = "Remember to enable \"Unknown sources\" in the Developer Settings of Android Auto.")
+        SettingsDescription(text = "Не забудьте включить «Неизвестные источники» в настройках разработчика Android Auto.")
 
         SwitchSettingEntry(
             title = "Android Auto",
-            text = "Enable Android Auto support",
+            text = "Включить поддержку Android Auto",
             isChecked = isAndroidAutoEnabled,
             onCheckedChange = { isAndroidAutoEnabled = it }
         )
 
         SettingsGroupSpacer()
 
-        SettingsEntryGroupText(title = "SEARCH HISTORY")
+        SettingsEntryGroupText(title = "История поиска")
 
         SwitchSettingEntry(
-            title = "Pause search history",
-            text = "Neither save new searched queries nor show history",
+            title = "Приостановить историю поиска",
+            text = "Не сохранять новые поисковые запросы и не показывать историю",
             isChecked = pauseSearchHistory,
             onCheckedChange = { pauseSearchHistory = it }
         )
 
         SettingsEntry(
-            title = "Clear search history",
+            title = "Очистить историю поиска",
             text = if (queriesCount > 0) {
-                "Delete $queriesCount search queries"
+                "Удалено посиковых запросов: $queriesCount search queries"
             } else {
-                "History is empty"
+                "История пуста"
             },
             isEnabled = queriesCount > 0,
             onClick = { query(Database::clearQueries) }
@@ -135,21 +135,21 @@ fun OtherSettings() {
 
         SettingsGroupSpacer()
 
-        SettingsEntryGroupText(title = "SERVICE LIFETIME")
+        SettingsEntryGroupText(title = "Батарея")
 
-        ImportantSettingsDescription(text = "If battery optimizations are applied, the playback notification can suddenly disappear when paused.")
+        ImportantSettingsDescription(text = "Если применена оптимизация батареи, уведомление о воспроизведении может внезапно исчезнуть при паузе.")
 
         if (isAtLeastAndroid12) {
-            SettingsDescription(text = "Since Android 12, disabling battery optimizations is required for the \"Invincible service\" option to take effect.")
+            SettingsDescription(text = "Начиная с Android 12, для вступления в силу опции \"Invincible service\" требуется отключение оптимизации батареи.")
         }
 
         SettingsEntry(
-            title = "Ignore battery optimizations",
+            title = "Игнорировать оптимизацию батареи",
             isEnabled = !isIgnoringBatteryOptimizations,
             text = if (isIgnoringBatteryOptimizations) {
-                "Already unrestricted"
+                "Уже без ограничений"
             } else {
-                "Disable background restrictions"
+                "Отключить фоновые ограничения"
             },
             onClick = {
                 if (!isAtLeastAndroid6) return@SettingsEntry
@@ -166,7 +166,7 @@ fun OtherSettings() {
                             Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS)
                         )
                     } catch (e: ActivityNotFoundException) {
-                        context.toast("Couldn't find battery optimization settings, please whitelist ViMusic manually")
+                        context.toast("Не удалось найти настройки оптимизации батареи. Внесите ViMusic в белый список вручную.")
                     }
                 }
             }
@@ -174,7 +174,7 @@ fun OtherSettings() {
 
         SwitchSettingEntry(
             title = "Invincible service",
-            text = "When turning off battery optimizations is not enough",
+            text = "При отключении оптимизации заряда батареи недостаточно",
             isChecked = isInvincibilityEnabled,
             onCheckedChange = { isInvincibilityEnabled = it }
         )

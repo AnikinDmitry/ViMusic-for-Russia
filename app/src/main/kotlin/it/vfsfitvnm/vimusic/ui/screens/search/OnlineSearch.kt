@@ -160,7 +160,7 @@ fun OnlineSearch(
                             val isAlbum = playlistId.startsWith("OLAK5uy_")
 
                             SecondaryTextButton(
-                                text = "View ${if (isAlbum) "album" else "playlist"}",
+                                text = "Смотреть ${if (isAlbum) "альбом" else "плейлист"}",
                                 onClick = { onViewPlaylist(textFieldValue.text) }
                             )
                         }
@@ -172,7 +172,7 @@ fun OnlineSearch(
 
                         if (textFieldValue.text.isNotEmpty()) {
                             SecondaryTextButton(
-                                text = "Clear",
+                                text = "Очистить",
                                 onClick = { onTextFieldValueChanged(TextFieldValue()) }
                             )
                         }
@@ -304,7 +304,7 @@ fun OnlineSearch(
                             .fillMaxSize()
                     ) {
                         BasicText(
-                            text = "An error has occurred.",
+                            text = "Произошла ошибка.",
                             style = typography.s.secondary.center,
                             modifier = Modifier
                                 .align(Alignment.Center)

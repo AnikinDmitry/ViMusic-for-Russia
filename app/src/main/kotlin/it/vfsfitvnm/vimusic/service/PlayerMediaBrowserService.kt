@@ -131,7 +131,7 @@ class PlayerMediaBrowserService : MediaBrowserService(), ServiceConnection {
         inline get() = BrowserMediaItem(
             BrowserMediaDescription.Builder()
                 .setMediaId(MediaId.shuffle)
-                .setTitle("Shuffle")
+                .setTitle("Перемешать")
                 .setIconUri(uriFor(R.drawable.shuffle))
                 .build(),
             BrowserMediaItem.FLAG_PLAYABLE
@@ -141,7 +141,7 @@ class PlayerMediaBrowserService : MediaBrowserService(), ServiceConnection {
         inline get() = BrowserMediaItem(
             BrowserMediaDescription.Builder()
                 .setMediaId(MediaId.songs)
-                .setTitle("Songs")
+                .setTitle("Песни")
                 .setIconUri(uriFor(R.drawable.musical_notes))
                 .build(),
             BrowserMediaItem.FLAG_BROWSABLE
@@ -152,7 +152,7 @@ class PlayerMediaBrowserService : MediaBrowserService(), ServiceConnection {
         inline get() = BrowserMediaItem(
             BrowserMediaDescription.Builder()
                 .setMediaId(MediaId.playlists)
-                .setTitle("Playlists")
+                .setTitle("Плейлисты")
                 .setIconUri(uriFor(R.drawable.playlist))
                 .build(),
             BrowserMediaItem.FLAG_BROWSABLE
@@ -162,7 +162,7 @@ class PlayerMediaBrowserService : MediaBrowserService(), ServiceConnection {
         inline get() = BrowserMediaItem(
             BrowserMediaDescription.Builder()
                 .setMediaId(MediaId.albums)
-                .setTitle("Albums")
+                .setTitle("Альбомы")
                 .setIconUri(uriFor(R.drawable.disc))
                 .build(),
             BrowserMediaItem.FLAG_BROWSABLE
@@ -172,7 +172,7 @@ class PlayerMediaBrowserService : MediaBrowserService(), ServiceConnection {
         inline get() = BrowserMediaItem(
             BrowserMediaDescription.Builder()
                 .setMediaId(MediaId.favorites)
-                .setTitle("Favorites")
+                .setTitle("Любимое")
                 .setIconUri(uriFor(R.drawable.heart))
                 .build(),
             BrowserMediaItem.FLAG_PLAYABLE
@@ -182,7 +182,7 @@ class PlayerMediaBrowserService : MediaBrowserService(), ServiceConnection {
         inline get() = BrowserMediaItem(
             BrowserMediaDescription.Builder()
                 .setMediaId(MediaId.offline)
-                .setTitle("Offline")
+                .setTitle("Оффлайн")
                 .setIconUri(uriFor(R.drawable.airplane))
                 .build(),
             BrowserMediaItem.FLAG_PLAYABLE
@@ -204,11 +204,22 @@ class PlayerMediaBrowserService : MediaBrowserService(), ServiceConnection {
             BrowserMediaDescription.Builder()
                 .setMediaId(MediaId.forPlaylist(playlist.id))
                 .setTitle(playlist.name)
-                .setSubtitle("$songCount songs")
+                .setSubtitle(songCount.getSongsText())
                 .setIconUri(uriFor(R.drawable.playlist))
                 .build(),
             BrowserMediaItem.FLAG_PLAYABLE
         )
+
+    private fun Int.getSongsText() =
+        if (this in 11..19) {
+            "$this песен"
+        } else {
+            when (this % 10) {
+                1 -> "$this песня"
+                2, 3, 4 -> "$this песни"
+                else -> "$this песен"
+            }
+        }
 
     private val Album.asBrowserMediaItem
         inline get() = BrowserMediaItem(

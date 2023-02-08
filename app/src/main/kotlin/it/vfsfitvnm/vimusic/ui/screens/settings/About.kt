@@ -37,38 +37,46 @@ fun About() {
                     .asPaddingValues()
             )
     ) {
-        Header(title = "About") {
+        Header(title = "О нас") {
             BasicText(
-                text = "v${BuildConfig.VERSION_NAME} by vfsfitvnm",
+                text = "v${BuildConfig.VERSION_NAME} от vfsfitvnm",
                 style = typography.s.secondary
             )
         }
 
-        SettingsEntryGroupText(title = "SOCIAL")
+        SettingsEntryGroupText(title = "Связь")
 
         SettingsEntry(
             title = "GitHub",
-            text = "View the source code",
+            text = "Просмотреть исходный код",
             onClick = {
                 uriHandler.openUri("https://github.com/vfsfitvnm/ViMusic")
             }
         )
 
+        SettingsEntry(
+            title = "GitHub",
+            text = "Просмотреть исходный код (русифицированое приложение)",
+            onClick = {
+                uriHandler.openUri("https://github.com/AnikinDmitry/ViMusic-for-Russia")
+            }
+        )
+
         SettingsGroupSpacer()
 
-        SettingsEntryGroupText(title = "TROUBLESHOOTING")
+        SettingsEntryGroupText(title = "Устранение неисправностей")
 
         SettingsEntry(
-            title = "Report an issue",
-            text = "You will be redirected to GitHub",
+            title = "Сообщить о проблеме",
+            text = "Вы будете перенаправлены на GitHub",
             onClick = {
                 uriHandler.openUri("https://github.com/vfsfitvnm/ViMusic/issues/new?assignees=&labels=bug&template=bug_report.yaml")
             }
         )
 
         SettingsEntry(
-            title = "Request a feature or suggest an idea",
-            text = "You will be redirected to GitHub",
+            title = "Запросить функцию или предложить идею",
+            text = "Вы будете перенаправлены на GitHub",
             onClick = {
                 uriHandler.openUri("https://github.com/vfsfitvnm/ViMusic/issues/new?assignees=&labels=enhancement&template=feature_request.yaml")
             }

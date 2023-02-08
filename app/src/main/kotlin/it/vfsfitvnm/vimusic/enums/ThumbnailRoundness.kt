@@ -8,11 +8,15 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.dp
 import it.vfsfitvnm.vimusic.ui.styling.LocalAppearance
 
-enum class ThumbnailRoundness {
-    None,
-    Light,
-    Medium,
-    Heavy;
+enum class ThumbnailRoundness(private val descriptor: String) {
+    None("Нет"),
+    Light("Маленький"),
+    Medium("Средний"),
+    Heavy("Большой");
+
+    override fun toString(): String {
+        return descriptor
+    }
 
     fun shape(): Shape {
         return when (this) {
